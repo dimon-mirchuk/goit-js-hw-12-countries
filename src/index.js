@@ -1,7 +1,6 @@
 import './sass/main.scss';
 import fetchCountries from "./js/fetchCountries";
 import getRefs from "./js/refs";
-import notification from "./js/notification"
 import countryTmp from './templates/countryTmp.hbs';
 import { error } from '@pnotify/core/dist/PNotify.js';
 import '@pnotify/core/dist/PNotify.css';
