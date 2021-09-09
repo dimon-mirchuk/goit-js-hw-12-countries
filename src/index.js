@@ -14,7 +14,7 @@ refs.searchForm.addEventListener("input", debounce(onInputSearch, 500))
 function onInputSearch(e) {
     refs.countriesContainer.innerHTML = "";
     refs.countryContainer.innerHTML = "";
-    const inputValue = e.target.value
+    const inputValue = e.target.value.trim()
     if (!inputValue) {
         return
     }
@@ -22,15 +22,15 @@ function onInputSearch(e) {
         if (data.length >= 2 && data.length < 10) {
             displayCountryList(data);
         }
-        if (data.length === 1) {
+        else if (data.length === 1) {
         displayCountry(data[0]);
       }
-        if (data.length > 10) {
-        error({ delay: 2500, text: 'Please enter more specific data' });
-      }
+        else {
+        error({ delay: 2500, text: 'Sorry, nothing was found. Please enter more specific data' });
+        }
     })
     .catch(() => {
-      error({ delay: 2500, text: 'There is no such country in the list. Please try again' });
+      error({ delay: 2500, text: 'Wops, something went wrong. Please try again later' });
     })
 }
 
